@@ -49,3 +49,18 @@ test('Not allowed to end with a symbol "-" (name -> Zombie1234Power-)', () => {
   const received = new Validator();
   expect(received.validateUsername('Zombie1234Power-')).toBe(false);
 });
+
+test('two uppercase symbols (name -> AL)', () => {
+  const received = new Validator();
+  expect(received.validateUsername('AL')).toBe(true);
+});
+
+test('3 uppercase symbols & 1 number (name -> C3PO)', () => {
+  const received = new Validator();
+  expect(received.validateUsername('C3PO')).toBe(true);
+});
+
+test('3 numbers in a row & other symbols (name -> 404pagen0tf0und)', () => {
+  const received = new Validator();
+  expect(received.validateUsername('404pagen0tf0und')).toBe(true);
+});
